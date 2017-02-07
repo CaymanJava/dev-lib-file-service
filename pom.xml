@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev-lib-file-service</groupId>
+    <groupId>dev-lib</groupId>
     <artifactId>dev-lib-file-service</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <name>file-service</name>
     <description>file-service</description>
