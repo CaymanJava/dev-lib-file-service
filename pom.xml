@@ -6,10 +6,11 @@
 
     <groupId>dev-lib</groupId>
     <artifactId>dev-lib-file-service</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 
     <name>file-service</name>
     <description>file-service</description>
+    <packaging>war</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

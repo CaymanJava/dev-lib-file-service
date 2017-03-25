@@ -3,6 +3,7 @@ package org.cayman.service;
 import lombok.extern.slf4j.Slf4j;
 import org.cayman.exception.ReadWriteFileException;
 import org.cayman.utils.Constants;
+import org.cayman.utils.Translit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,9 @@ public class FileManagerService {
     }
 
     String saveFile(MultipartFile file, String dir) {
-        String fileName = file.getOriginalFilename().replace(" ", "_");
+        String fileName = Translit.cyr2lat(file.getOriginalFilename()
+                .replaceAll(" ", "_")
+                .replaceAll("\\?", ""));
         try (FileOutputStream outputStream = new FileOutputStream(dir + fileName)) {
             outputStream.write(file.getBytes());
             log.info("File with a name " + fileName + " was saved in a temporary directory.");

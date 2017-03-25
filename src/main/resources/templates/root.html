@@ -1,0 +1,106 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>test</title>
+</head>
+<body>
+<form action="pdf/upload" method="post" class="col s12" enctype="multipart/form-data">
+        <div class="input-field col s5">
+            <input class="text" type="file" name="file" autocomplete="off"/>
+        </div>
+
+    <div class="input-field col s5">
+        <input class="number" type="number" name="page" id="page" autocomplete="off"/>
+    </div>
+
+    <div class="row" align="center">
+        <button class="btn waves-effect waves-light" type="submit">Upload document</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<form action="pdf/open" method="post" class="col s12">
+    <div class="input-field col s5">
+        <input class="text" type="text" name="id" autocomplete="off"/>
+    </div>
+
+    <div class="input-field col s5">
+        <input class="text" type="text" name="name" autocomplete="off"/>
+    </div>
+
+    <div class="row" align="center">
+        <button class="btn waves-effect waves-light" type="submit">Open document</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<form action="pdf/download" method="post" class="col s12">
+    <div class="input-field col s5">
+        <input class="text" type="text" name="id" autocomplete="off"/>
+    </div>
+
+    <div class="input-field col s5">
+        <input class="text" type="text" name="name" autocomplete="off"/>
+    </div>
+
+    <div class="row" align="center">
+        <button class="btn waves-effect waves-light" type="submit">Download document</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<form action="jpg/delete" method="post" class="col s12">
+    <div class="input-field col s5">
+        <input class="text" type="text" name="link" autocomplete="off"/>
+    </div>
+
+    <div class="row" align="center">
+        <button class="btn waves-effect waves-light" type="submit">Delete img</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+
+
+<form action="jpg/replace" method="post" class="col s12" enctype="multipart/form-data">
+    <div class="input-field col s5">
+        <input class="text" type="file" name="file" autocomplete="off"/>
+    </div>
+
+    <div class="input-field col s5">
+        <input class="text" type="text" name="link" autocomplete="off"/>
+    </div>
+
+    <div class="row" align="center">
+        <button class="btn waves-effect waves-light" type="submit">Upload document</button>
+    </div>
+</form>
+</body>
+</html>

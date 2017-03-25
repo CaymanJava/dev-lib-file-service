@@ -38,15 +38,22 @@ public class ApplicationController {
         this.applicationService = applicationService;
     }
 
+    //TODO delete
+    @RequestMapping(method = RequestMethod.GET)
+    public String root(){
+        return "root";
+    }
+
     @RequestMapping(value = "pdf/upload", method = RequestMethod.POST)
-    public @ResponseBody PdfUploadDto uploadPdf(@RequestParam("file") MultipartFile file, @RequestParam("page") Integer number) {
+    public @ResponseBody PdfUploadDto uploadPdf(@RequestParam("file") MultipartFile file,
+                                                @RequestParam("page") Integer number) {
         return applicationService.uploadPdf(file, number);
     }
 
-    @RequestMapping(value = "pdf/open", method = RequestMethod.POST)
+    @RequestMapping(value = "pdf/open", method = RequestMethod.GET)
     public void openPdf(@RequestParam("id") String id,
-                            @RequestParam("name") String name,
-                            HttpServletResponse response) throws UnsupportedEncodingException {
+                        @RequestParam("name") String name,
+                        HttpServletResponse response) throws UnsupportedEncodingException {
         if (!name.endsWith(".pdf")) {
             name = name + ".pdf";
         }
@@ -55,9 +62,9 @@ public class ApplicationController {
         response.setContentType("application/pdf; charset=UTF-8");
     }
 
-    @RequestMapping(value = "pdf/download", method = RequestMethod.POST)
+    @RequestMapping(value = "pdf/download", method = RequestMethod.GET)
     public HttpEntity<FileSystemResource> downloadPdf(@RequestParam("id") String id,
-                                          @RequestParam("name") String name) {
+                                                      @RequestParam("name") String name) {
         if (!name.endsWith(".pdf") || !name.endsWith(".PDF")) {
             name = name + ".pdf";
         }
@@ -80,11 +87,12 @@ public class ApplicationController {
     }
 
     @RequestMapping(value = "jpg/replace", method = RequestMethod.POST)
-    public @ResponseBody String uploadJpg(@RequestParam("file") MultipartFile file, String link) {
+    public @ResponseBody String uploadJpg(@RequestParam("file") MultipartFile file,
+                                          @RequestParam("link") String link) {
         return applicationService.replaceJpg(link, file);
     }
 
-    @RequestMapping(value = "jpg/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "jpg/delete", method = RequestMethod.GET)
     public @ResponseBody Boolean deleteJpg(@RequestParam("link") String link) {
         return applicationService.deleteJpg(link);
     }
@@ -94,6 +102,7 @@ public class ApplicationController {
         header.setContentType(MediaType.parseMediaType("application/pdf; charset=UTF-8"));
         header.set(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=" + Translit.cyr2lat(name.replace(",", "")));
+        header.set("Access-Control-Allow-Origin", "*");
         header.setContentLength(file.length());
         return header;
     }

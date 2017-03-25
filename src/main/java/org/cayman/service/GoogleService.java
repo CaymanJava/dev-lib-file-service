@@ -70,7 +70,7 @@ public class GoogleService {
                     .execute();
             return uploadFile.getId();
         } catch (IOException e) {
-            log.error("Exception while uploading file to Google Drive.");
+            log.warn("Exception while uploading file to Google Drive.");
             throw new UploadFileException(e.getMessage());
         }
     }
