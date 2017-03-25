@@ -2,6 +2,7 @@
 temp
 target/*
 work
+img
 logs/*
 .idea
 log/*
