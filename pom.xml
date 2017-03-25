@@ -6,7 +6,7 @@
 
     <groupId>dev-lib</groupId>
     <artifactId>dev-lib-file-service</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
 
     <name>file-service</name>
     <description>file-service</description>
