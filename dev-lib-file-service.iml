@@ -82,6 +82,7 @@
     <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox-debugger:2.0.0-RC1" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jai-imageio:jai-imageio-core-standalone:1.2-pre-dr-b04-2014-09-13" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jai-imageio:jai-imageio-jpeg2000:1.2-pre-dr-b04-2014-09-13" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk16:1.46" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.2.6.RELEASE" level="project" />

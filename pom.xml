@@ -6,11 +6,11 @@
 
     <groupId>dev-lib</groupId>
     <artifactId>dev-lib-file-service</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 
     <name>file-service</name>
     <description>file-service</description>
-    <packaging>war</packaging>
+
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -33,8 +33,8 @@
         <pdfbox.version>2.0.3</pdfbox.version>
         <pdfbox.tools.version>2.0.0-RC1</pdfbox.tools.version>
         <jai-imageio-core-standalone.version>1.2-pre-dr-b04-2014-09-13</jai-imageio-core-standalone.version>
-
         <apache.commons.io.version>2.5</apache.commons.io.version>
+        <bouncycastle.version>1.46</bouncycastle.version>
 
         <!--GOOGLE-->
         <google.drive.version>v3-rev56-1.22.0</google.drive.version>
@@ -167,6 +167,11 @@
             <groupId>net.java.dev.jai-imageio</groupId>
             <artifactId>jai-imageio-jpeg2000</artifactId>
             <version>${jai-imageio-core-standalone.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>${bouncycastle.version}</version>
         </dependency>
 
         <!--APACHE-->

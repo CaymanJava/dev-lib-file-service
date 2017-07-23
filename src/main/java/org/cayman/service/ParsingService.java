@@ -47,7 +47,7 @@ public class ParsingService {
     private PDDocument loadPdf(String path) {
         try {
             return PDDocument.load(new File(path));
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("Exception while loading file " + path);
             throw new ReadWriteFileException(e.getMessage());
         }
@@ -57,9 +57,8 @@ public class ParsingService {
         try {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(numberOfPicturePage - 1, DEFAULT_DPI, ImageType.RGB);
             ImageIOUtil.writeImage(bim, picturePath, DEFAULT_DPI);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("Exception while making screenshot.");
-            throw new ReadWriteFileException(e.getMessage());
         }
     }
 }

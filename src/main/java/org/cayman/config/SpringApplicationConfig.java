@@ -7,15 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.PathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 @SpringBootApplication
-@Configuration
 @EnableScheduling
 @Import({MvcConfiguration.class})
 @ComponentScan(value={"org.cayman.google.**", "org.cayman.service.**", "org.cayman.utils.**", "org.cayman.web.**"})
@@ -29,11 +30,24 @@ public class SpringApplicationConfig {
 
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        PropertySourcesPlaceholderConfigurer properties = new PropertySourcesPlaceholderConfigurer();
-        properties.setIgnoreResourceNotFound(false);
-        return properties;
+    public static PropertySourcesPlaceholderConfigurer properties() {
+        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+
+        String applicationProp = System.getProperty("application.properties");
+        Resource applicationRes;
+        if (applicationProp == null || applicationProp.isEmpty()) {
+            applicationRes = new ClassPathResource("application.properties");
+            log.info("Used default config for application properties");
+        } else {
+            applicationRes = new PathResource(applicationProp);
+            log.info("Application properties path is " + applicationProp);
+        }
+
+        propertySourcesPlaceholderConfigurer.setLocations(applicationRes);
+        propertySourcesPlaceholderConfigurer.setIgnoreResourceNotFound(false);
+        return propertySourcesPlaceholderConfigurer;
     }
+
 
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
